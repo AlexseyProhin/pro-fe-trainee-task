@@ -1,7 +1,6 @@
-class Repolist extends React.Component {
-    render () {
-        return (
-            <div className="repo-list">
+import React from 'react';
+   const RepoList = () => {
+        return <div className="repo-list">
                 <h1>Поисковая строка, пустая топ 10 вывод {this.props.name}</h1>
                 <ul>
                     <li>Название репо</li>
@@ -11,6 +10,6 @@ class Repolist extends React.Component {
                 </ul>
 
             </div>
-        )
+        
     }
-}
+export default RepoList;
