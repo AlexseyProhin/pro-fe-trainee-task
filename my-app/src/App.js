@@ -2,31 +2,29 @@ import React from 'react';
 import './App.css';
 import RepoDetails from './RepoDetails'
 import RepoList from './RepoList'
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <RepoDetails />
-        <RepoList />
-        
-      </header>
-    </div>
-  );
-  
-}
-  
-  render() {
-  const RepoList = this.state.RepoDetails;
-  return (
-    <div>
-      {RepoList
-        ? <RepoList onClick={this.App} />
-        : <App onClick={this.handleLoginClick} />
-      }
-     
-    </div>
-     );
-  
+class App extends React.Component {
+  state = {
+    is_main : true
+  }
+  buttonHandle(){
+    this.setState({
+      is_main: !this.state.is_main
+    })
+  }
+  render (){
+    return (
+      <div className="App">
+        <button onClick={()=>this.buttonHandle()}>
+          Перейти
+        </button>
+
+        <header className="App-header">
+          {this.state.is_main && <RepoDetails />}
+          {!this.state.is_main && <RepoList /> }
+        </header>
+      </div>
+    );
+  }
 };
 
 
