@@ -5,6 +5,20 @@ import RepoList from './RepoList'
 class App extends React.Component {
   state = {
     is_main : true
+     repos: [
+       {
+        name: 'репозиторий1',
+        stars: 2
+       },
+            {
+        name: 'репозиторий2',
+        stars: 3
+            },
+              {
+        name: 'репохиторий3'
+        stars: 4
+              }
+     ]
   }
   buttonHandle(){
     this.setState({
@@ -20,7 +34,7 @@ class App extends React.Component {
 
         <header className="App-header">
           {this.state.is_main && <RepoDetails />}
-          {!this.state.is_main && <RepoList /> }
+          {!this.state.is_main && <RepoList repos={this.state.repos} /> }
         </header>
       </div>
     );
