@@ -3,6 +3,7 @@ const RepoDetails = () => {
     return <div className="repo-details">
             <h1>Карточка репо</h1>
             <ul>
+                
                 <li>название</li>
                 <li>звезды</li>
                 <li>дата</li>

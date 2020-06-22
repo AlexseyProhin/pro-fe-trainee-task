@@ -4,21 +4,28 @@ import RepoDetails from './RepoDetails'
 import RepoList from './RepoList'
 class App extends React.Component {
   state = {
-    is_main : true
-     repos: [
-       {
+    is_main : true,
+     
+    repos: [
+      {
         name: 'репозиторий1',
         stars: 2
-       },
-            {
+      },
+      {
         name: 'репозиторий2',
         stars: 3
-            },
-              {
-        name: 'репохиторий3'
+      },
+      {
+        name: 'репохиторий3',
         stars: 4
-              }
-     ]
+      }
+    ],
+     get repos() {
+       return this._repos;
+     },
+     set repos(value) {
+       this._repos = value;
+     },
   }
   buttonHandle(){
     this.setState({
