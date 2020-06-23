@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import './App.css';
 import RepoDetails from './RepoDetails'
 import RepoList from './RepoList'
-class App extends React.Component {
+class App extends React.Component { 
+  repoClick(id) {
+    console.log (id)
+  }
   state = {
     is_main : true,
      
@@ -19,13 +22,19 @@ class App extends React.Component {
         name: 'репохиторий3',
         stars: 4
       }
-    ],
-     get repos() {
-       return this._repos;
-     },
-     set repos(value) {
-       this._repos = value;
-     },
+    ], 
+    current_repo_id : [
+
+    ]
+    
+        
+      };
+    }
+    
+      
+    }
+    
+     
   }
   buttonHandle(){
     this.setState({
@@ -41,7 +50,7 @@ class App extends React.Component {
 
         <header className="App-header">
           {this.state.is_main && <RepoDetails />}
-          {!this.state.is_main && <RepoList repos={this.state.repos} /> }
+          {!this.state.is_main && <RepoList repos={this.state.repos} repoClick={(id) => this.repoClick(id)}/> }
         </header>
       </div>
     );
