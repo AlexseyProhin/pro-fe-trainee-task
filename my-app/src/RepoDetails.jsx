@@ -1,5 +1,5 @@
 import React from 'react';
-const RepoDetails = () => {
+const RepoDetails = (props) => {
     return <div className="repo-details">
             <h1>Карточка репо</h1>
             <ul>
