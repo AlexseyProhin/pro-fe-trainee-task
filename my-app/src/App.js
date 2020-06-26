@@ -10,17 +10,25 @@ class App extends React.Component {
       {
         id:0,
         name: 'репозиторий1',
-        stars: 2
+        stars: 2,
+        data: 25.062020,
+        projekt: '/tg-bomze/Face-Depixelizer">tg-bomze / Face-Depixelizer'
+
       },
       {
         id:1,
         name: 'репозиторий2',
-        stars: 3
+        stars: 3,
+        data: 21.062020,
+        projekt: '/Covid-19Radar/Covid19Radar">Covid-19Radar / Covid19Radar'
       },
       {
         id:2,
-        name: 'репохиторий3',
-        stars: 4
+        name: 'репозииторий3',
+        stars: 4,
+        data: 22.062020,
+        projekt: '/adamian98/pulse">adamian98 / pulse'
+
       }
     ]
   } 
@@ -35,6 +43,7 @@ current_repo_id: id,
 is_main: true,
     })
   }
+  
   render (){
     return (
       <div className="App">
