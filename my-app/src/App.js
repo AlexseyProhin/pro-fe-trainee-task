@@ -2,7 +2,26 @@ import React, { useLayoutEffect } from 'react';
 import './App.css';
 import RepoDetails from './RepoDetails'
 import RepoList from './RepoList'
+import axios from 'axios'
+
+
 class App extends React.Component { 
+  componentDidMount () {
+    axios.get('https://api.github.com/orgs/octokit/repos')
+    .then(res => { 
+      const  = res.data;
+      this.setState ({ persons });
+    })
+  }
+  render() {
+    return (
+      <ul>
+        { this.state.persons.map(person => <li>{person.name}</li>)}
+      </ul>
+    )
+  }
+
+
   state = {
     is_main : false,
      current_repo_id: 0,
