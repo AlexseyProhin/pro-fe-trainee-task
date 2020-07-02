@@ -18,12 +18,8 @@ class App extends React.Component {
   //value = {this.state.email}; onChange={this.handleUserInput}  Я не понял где это должно находиться
   
   state = {
-    constructor (props) {
-      super(props);
-      this.state = {
-        email: ''
-      }
-    },
+    
+   
     
     is_main : false,
      current_repo_id: 0,
@@ -40,6 +36,9 @@ current_repo_id: id,
 is_main: true,
     })
   }
+  /*OnCgange(event) {
+    this.setState({value: event.target.value})
+    }};*/
 
    
   
@@ -51,9 +50,10 @@ is_main: true,
         <button onClick={()=>this.buttonHandle()}>
           Перейти на главную
         </button>
-        <Form /> 
+        
         <header className="App-header">
-
+          <input />
+          <Form /> 
           {this.state.is_main && <RepoDetails repo={this.state.repos[this.state.current_repo_id]}/>}
           {!this.state.is_main && <RepoList repos={this.state.repos} repoClick={(id) => this.repoClick(id)}/> }
         </header>
