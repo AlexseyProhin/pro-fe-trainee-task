@@ -23,7 +23,7 @@ class App extends React.Component {
     
     is_main : false,
      current_repo_id: 0,
-    repos: []
+      repos: []
   } 
      buttonHandle(id){
     this.setState({
@@ -32,13 +32,14 @@ class App extends React.Component {
   }
   repoClick(id){
     this.setState({
-current_repo_id: id,
-is_main: true,
+      current_repo_id: id,
+      is_main: true,
     })
   }
-  /*OnCgange(event) {
-    this.setState({value: event.target.value})
-    }};*/
+  onChange(event) {
+    this.setState({value: event.target.value});
+    }
+  }
 
    
   
@@ -52,7 +53,7 @@ is_main: true,
         </button>
         
         <header className="App-header">
-          <input />
+          <input OnChange />
           <Form /> 
           {this.state.is_main && <RepoDetails repo={this.state.repos[this.state.current_repo_id]}/>}
           {!this.state.is_main && <RepoList repos={this.state.repos} repoClick={(id) => this.repoClick(id)}/> }
