@@ -7,7 +7,7 @@ import axios from 'axios'
 
 class App extends React.Component { 
   componentDidMount () {
-    axios.get('https://api.github.com/search/repositories?q=React')
+    axios.get('https://api.github.com/search/repositories?q=' + this.state.searcQuery)
     .then(res => { 
       
     this.setState({repos:res.data});
@@ -20,7 +20,7 @@ class App extends React.Component {
     
   
    
-    
+    searcQuery: 'React',
     is_main : false,
      current_repo_id: 0,
       repos: [
@@ -39,8 +39,8 @@ class App extends React.Component {
       is_main: true,
     })
   }
-  onChange(event) {
-    this.setState({value: event.target.value});
+  onSearchInputChange(event) {
+    this.setState({searcQuery: event.target.value});
     }
   
 
@@ -56,7 +56,7 @@ class App extends React.Component {
         </button>
         
         <header className="App-header">
-          <input type="text" value={this.state.value} onChange={(event) => this.onChange(event)} />
+          <input type="text" value={this.state.value} onChange={(event) => this.onSearchInputChange(event)} />
            {this.setState({repos:res.data})}
           {this.state.is_main && <RepoDetails repo={this.state.repos[this.state.current_repo_id]}/>}
           {!this.state.is_main && <RepoList repos={this.state.repos} repoClick={(id) => this.repoClick(id)}/> }
