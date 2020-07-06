@@ -8,9 +8,9 @@ const RepoDetails = (props) => {
          
             <h1>Карточка репо</h1>
             <ul>
-                <li>название - {props.repo.name} </li>
-                <li>звезды - {props.repo.stars} </li>
-                <li>дата  {props.repo.data} </li>
+                <li>название  </li>
+                <li>звезды   </li>
+               <li>дата  </li>
                 <li>ссылка  <a href ='https://github.com'>github</a></li> 
                 <li>языки</li>
                 <li>описание</li>

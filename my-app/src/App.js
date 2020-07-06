@@ -2,28 +2,31 @@ import React, { useLayoutEffect } from 'react';
 import './App.css';
 import RepoDetails from './RepoDetails'
 import RepoList from './RepoList'
-import Form from './Form.js'
 import axios from 'axios'
 
 
 class App extends React.Component { 
   componentDidMount () {
-    axios.get('https://api.github.com/search/repositories?q=newSearh')
+    axios.get('https://api.github.com/search/repositories?q=React')
     .then(res => { 
       
     this.setState({repos:res.data});
     })
   }
  
-  //value = {this.state.email}; onChange={this.handleUserInput}  Я не понял где это должно находиться
+  
   
   state = {
     
+  
    
     
     is_main : false,
      current_repo_id: 0,
-      repos: []
+      repos: [
+       
+      
+      ]
   } 
      buttonHandle(id){
     this.setState({
@@ -39,7 +42,7 @@ class App extends React.Component {
   onChange(event) {
     this.setState({value: event.target.value});
     }
-  }
+  
 
    
   
@@ -53,8 +56,8 @@ class App extends React.Component {
         </button>
         
         <header className="App-header">
-          <input OnChange />
-          <Form /> 
+          <input type="text" value={this.state.value} onChange={(event) => this.onChange(event)} />
+           {this.setState({repos:res.data})}
           {this.state.is_main && <RepoDetails repo={this.state.repos[this.state.current_repo_id]}/>}
           {!this.state.is_main && <RepoList repos={this.state.repos} repoClick={(id) => this.repoClick(id)}/> }
         </header>
