@@ -3,14 +3,17 @@ import './App.css';
 import RepoDetails from './RepoDetails'
 import RepoList from './RepoList'
 import axios from 'axios'
+import {DebounceInput} from 'react-debounce-input';
 
 
 class App extends React.Component { 
-  componentDidMount () {
+
+
+  componentDidUpdate () {
     axios.get('https://api.github.com/search/repositories?q=' + this.state.searcQuery)
     .then(res => { 
       
-    this.setState({repos:res.data});
+    this.setState({repos: res.data});
     })
   }
  
@@ -56,8 +59,11 @@ class App extends React.Component {
         </button>
         
         <header className="App-header">
-          <input type="text" value={this.state.value} onChange={(event) => this.onSearchInputChange(event)} />
-           {this.setState({repos:res.data})}
+        <DebounceInput
+          minLength={2}
+          debounceTimeout={7000} 
+          value={this.state.value} onChange={(event) => this.onSearchInputChange(event)} />
+           
           {this.state.is_main && <RepoDetails repo={this.state.repos[this.state.current_repo_id]}/>}
           {!this.state.is_main && <RepoList repos={this.state.repos} repoClick={(id) => this.repoClick(id)}/> }
         </header>
