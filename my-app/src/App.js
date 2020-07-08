@@ -11,12 +11,12 @@ class App extends React.Component {
 
   componentDidUpdate () {
     debounce (
-      this.callAxaj = debounce (1000, this.callAxaj),
-              axios.get('https://api.github.com/search/repositories?q=' + this.state.searcQuery))
+   this.callAxaj = debounce (5000, this.callAxaj),
+              axios.get('https://api.github.com/search/repositories?q=' + this.state.searcQuery)
                 .then(res => { 
       
                   this.setState({repos: res.data});
-    })
+    }))
   }
  
   
@@ -45,7 +45,7 @@ class App extends React.Component {
     })
   }
   onSearchInputChange(event) {
-    /*this.setState*/this.callAxaj({searcQuery: event.target.value});
+    /*this.callAxaj*/this.setState({searcQuery: event.target.value});
     }
   
 

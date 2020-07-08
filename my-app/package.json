@@ -10,7 +10,8 @@
     "react": "^16.13.1",
     "react-debounce-input": "^3.2.2",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "throttle-debounce": "^2.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
