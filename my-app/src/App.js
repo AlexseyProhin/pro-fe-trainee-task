@@ -3,17 +3,19 @@ import './App.css';
 import RepoDetails from './RepoDetails'
 import RepoList from './RepoList'
 import axios from 'axios'
-import {DebounceInput} from 'react-debounce-input';
+import {debounce} from 'throttle-debounce';
 
 
 class App extends React.Component { 
 
 
   componentDidUpdate () {
-    axios.get('https://api.github.com/search/repositories?q=' + this.state.searcQuery)
-    .then(res => { 
+    debounce (
+      this.callAxaj = debounce (1000, this.callAxaj),
+              axios.get('https://api.github.com/search/repositories?q=' + this.state.searcQuery))
+                .then(res => { 
       
-    this.setState({repos: res.data});
+                  this.setState({repos: res.data});
     })
   }
  
@@ -43,7 +45,7 @@ class App extends React.Component {
     })
   }
   onSearchInputChange(event) {
-    this.setState({searcQuery: event.target.value});
+    /*this.setState*/this.callAxaj({searcQuery: event.target.value});
     }
   
 
@@ -59,10 +61,7 @@ class App extends React.Component {
         </button>
         
         <header className="App-header">
-        <DebounceInput
-          minLength={2}
-          debounceTimeout={7000} 
-          value={this.state.value} onChange={(event) => this.onSearchInputChange(event)} />
+        <input value={this.state.value} onChange={(event) => this.onSearchInputChange(event)} />
            
           {this.state.is_main && <RepoDetails repo={this.state.repos[this.state.current_repo_id]}/>}
           {!this.state.is_main && <RepoList repos={this.state.repos} repoClick={(id) => this.repoClick(id)}/> }
