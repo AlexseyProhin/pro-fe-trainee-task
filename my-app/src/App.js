@@ -10,7 +10,7 @@ class App extends React.Component {
 
   constructor (props) {
     super (props)
-    this.fetсhGithub = debounce (6000, this.fetсhGithub);
+    this.fetchGithub = debounce (6000, this.fetсhGithub);
   }
 
   componentDidUpdate (prevProps, prevState) {
@@ -18,7 +18,7 @@ class App extends React.Component {
       this.fetсhGithub () 
       }
         fetсhGithub () {
-        axios.get('https://api.github.com/search/repositories?q=' + this.state.searcQuery)
+        axios.get('https://api.github.com/search/repositories?q=' + this.state.searcQuery + this.state.usersKeyApi)
          .then(res => { 
       
                   this.setState({repos: res.data});
@@ -31,9 +31,9 @@ class App extends React.Component {
   state = {
     
   
-   
+   usersKeyApi: '7338fca6dae435ae097a2dcf47844de50da5f1b5',
     searcQuery: 'React',
-    is_main : false,
+    is_main: false,
      current_repo_id: 0,
       repos: [
        
