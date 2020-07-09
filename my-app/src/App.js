@@ -8,15 +8,22 @@ import {debounce} from 'throttle-debounce';
 
 class App extends React.Component { 
 
+  constructor (props) {
+    super (props)
+    this.fetсhGithub = debounce (6000, this.fetсhGithub);
+  }
 
-  componentDidUpdate () {
-    debounce (
-   this.callAxaj = debounce (5000, this.callAxaj),
-              axios.get('https://api.github.com/search/repositories?q=' + this.state.searcQuery)
-                .then(res => { 
+  componentDidUpdate (prevProps, prevState) {
+    if(prevState.searcQuery !== this.state.searcQuery) 
+      this.fetсhGithub () 
+      }
+        fetсhGithub () {
+        axios.get('https://api.github.com/search/repositories?q=' + this.state.searcQuery)
+         .then(res => { 
       
                   this.setState({repos: res.data});
-    }))
+    })
+    
   }
  
   
@@ -45,7 +52,7 @@ class App extends React.Component {
     })
   }
   onSearchInputChange(event) {
-    /*this.callAxaj*/this.setState({searcQuery: event.target.value});
+   /*this.callAxaj*/ this.setState({searcQuery: event.target.value});
     }
   
 
