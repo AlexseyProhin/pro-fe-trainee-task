@@ -13,12 +13,14 @@ class App extends React.Component {
     this.fetchGithub = debounce (6000, this.fetchGithub);
   }
 
-  componentDidUpdate (prevProps, prevState) {
-    if(prevState.searcQuery !== this.state.searcQuery) 
-      this.fetchGithub ()
+  componentDidUpdate(prevProps, prevState) {
+      if (prevState.searcQuery !== this.state.searcQuery) {
+          this.fetchGithub() //вызываем получение данных из гитхаб апи
       }
+      //при каждом обновлении компонента
+  }
         fetchGithub () {
-        axios.get( 'https://api.github.com/search/repositories?q=' + this.state.searcQuery,['Authorization: usersKeyApi'])
+        axios.get( 'https://api.github.com/search/repositories?q=' + this.state.searcQuery, {headers:{Authorization: 'Token ${usersKeyApi}'})
          .then(res => {
       
                   this.setState({repos: res.data});
