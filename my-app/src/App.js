@@ -10,14 +10,14 @@ class App extends React.Component {
 
   constructor (props) {
     super (props)
-    this.fetchGithub = debounce (6000, this.fetсhGithub);
+    this.fetchGithub = debounce (6000, this.fetchGithub);
   }
 
   componentDidUpdate (prevProps, prevState) {
     if(prevState.searcQuery !== this.state.searcQuery) 
-      this.fetсhGithub () 
+      this.fetchGithub ()
       }
-        fetсhGithub () {
+        fetchGithub () {
         axios.get( 'https://api.github.com/search/repositories?q=' + this.state.searcQuery,['Authorization: usersKeyApi'])
          .then(res => {
       
