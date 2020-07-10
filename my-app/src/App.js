@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import './App.css';
 import RepoDetails from './RepoDetails'
 import RepoList from './RepoList'
@@ -18,8 +18,8 @@ class App extends React.Component {
       this.fetсhGithub () 
       }
         fetсhGithub () {
-        axios.get('https://api.github.com/search/repositories?q=' + this.state.searcQuery + this.state.usersKeyApi)
-         .then(res => { 
+        axios.get( 'https://api.github.com/search/repositories?q=' + this.state.searcQuery,['Authorization: usersKeyApi'])
+         .then(res => {
       
                   this.setState({repos: res.data});
     })
