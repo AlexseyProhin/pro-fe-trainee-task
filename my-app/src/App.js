@@ -20,8 +20,11 @@ class App extends React.Component {
       //при каждом обновлении компонента
   }
         fetchGithub () {
-        axios.get( 'https://api.github.com/search/repositories?q=' + this.state.searcQuery, {headers:{Authorization: 'Token ${usersKeyApi}'})
-         .then(res => {
+        axios.get( 'https://api.github.com/search/repositories?q=' + this.state.searcQuery,
+            {headers:
+                    {Authorization: 'Token ${usersKeyApi}'}}
+                    )
+                    .then(res => {
       
                   this.setState({repos: res.data});
     })
