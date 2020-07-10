@@ -22,7 +22,8 @@ class App extends React.Component {
         fetchGithub () {
         axios.get( 'https://api.github.com/search/repositories?q=' + this.state.searcQuery,
             {headers:
-                    {Authorization: 'Token ${usersKeyApi}'}}
+                // eslint-disable-next-line no-undef
+                    {Authorization: `Token ${(this.state.usersKeyApi)}`}}
                     )
                     .then(res => {
       
