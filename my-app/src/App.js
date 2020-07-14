@@ -41,10 +41,12 @@ class App extends React.Component {
     searcQuery: 'React',
     is_main: false,
      current_repo_id: 0,
-      repos: [
-       
-      
-      ]
+      repos: {
+       items: [ ]
+      }
+
+
+
   } 
      buttonHandle(id){
     this.setState({
@@ -58,7 +60,7 @@ class App extends React.Component {
     })
   }
   onSearchInputChange(event) {
-   /*this.callAxaj*/ this.setState({searcQuery: event.target.value});
+    this.setState({searcQuery: event.target.value});
     }
   
 
@@ -75,9 +77,9 @@ class App extends React.Component {
         
         <header className="App-header">
         <input value={this.state.value} onChange={(event) => this.onSearchInputChange(event)} />
-           
+
           {this.state.is_main && <RepoDetails repo={this.state.repos[this.state.current_repo_id]}/>}
-          {!this.state.is_main && <RepoList repos={this.state.repos} repoClick={(id) => this.repoClick(id)}/> }
+          {!this.state.is_main && <RepoList repos={this.state.repos.items} repoClick={(id) => this.repoClick(id)}/> }
         </header>
       </div>
     );

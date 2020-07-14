@@ -5,9 +5,10 @@ import React from 'react';
 
                 <ul>
                  
-                    {props.repos.length && props.repos.items(repo => (
+                    {props.repos.length && props.repos.map(repo => (
                         
                      <li key={repo.id} >{repo.data} _ {repo.stars} <button onClick={() => props.repoClick(repo.id)} > click</button> </li>
+
 
 
                     ))}
