@@ -7,7 +7,7 @@ import React from 'react';
                  
                     {props.repos.length && props.repos.map(repo => (
                         
-                     <li key={repo.id} >{repo.data} _ {repo.stars} <button onClick={() => props.repoClick(repo.id)} > click</button> </li>
+                     <li key={repo.id} >{repo.full_name} _ {repo.url} _ {repo.score} _ { repo.updated_at} <button onClick={() => props.repoClick(repo.id)} > click</button> </li>
 
 
 

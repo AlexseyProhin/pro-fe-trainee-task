@@ -42,7 +42,9 @@ class App extends React.Component {
     is_main: false,
      current_repo_id: 0,
       repos: {
-       items: [ ]
+       items: [
+
+       ]
       }
 
 
