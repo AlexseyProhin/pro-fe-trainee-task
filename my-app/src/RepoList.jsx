@@ -2,7 +2,7 @@ import React from 'react';
 
 const RepoList = (props) => {
     return <div className="repo-list">
-        <h1>Поисковая строка, пустая топ 10 вывод</h1>
+        <h1> пустой поиск топ 10 вывод</h1>
 
         <ul>
 

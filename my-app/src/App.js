@@ -21,7 +21,7 @@ class App extends React.Component {
     }
 
     fetchGithub() {
-        axios.get('https://api.github.com/search/repositories?q=' + this.state.searcQuery,
+        axios.get('https://api.github.com/search/repositories?sort=stars&q=' + this.state.searcQuery,
             {
                 headers:
                 // eslint-disable-next-line no-undef
@@ -38,7 +38,7 @@ class App extends React.Component {
 
     state = {
 
-
+        pagestate : 'newgetpag',
         usersKeyApi: '7338fca6dae435ae097a2dcf47844de50da5f1b5',
         searcQuery: 'React',
         is_main: false,
@@ -49,7 +49,12 @@ class App extends React.Component {
 
 
     }
-
+    pageClick(id) {
+        this.setState({
+            current_repo_id: id,
+            is_main: true,
+        })
+    }
     buttonHandle(id) {
         this.setState({
             is_main: !this.state.is_main
@@ -74,6 +79,18 @@ class App extends React.Component {
                 <button onClick={() => this.buttonHandle()}>
                     Перейти на главную
                 </button>
+                <button onClick={() => this.buttonHandle()}>
+                    1
+                </button>
+                <button onClick={() => this.buttonHandle()}>
+                    2
+                </button>
+                <button onClick={() => this.buttonHandle()}>
+                    3
+                </button>
+                <button onClick={() => this.buttonHandle()}>
+                    4
+                </button>
 
                 <header className="App-header">
                     <input value={this.state.value} onChange={(event) => this.onSearchInputChange(event)}/>
@@ -82,6 +99,15 @@ class App extends React.Component {
                     {!this.state.is_main &&
                     <RepoList repos={this.state.repos.items} repoClick={(id) => this.repoClick(id)}/>}
                 </header>
+                <footer>
+                 /*   <div id="pages">
+                       <button onClick={() => props.pageClick(repo.id)}> click</button>
+                        <button onClick={() => props.pageClick(repo.id)}> click</button>
+                       <button onClick={() => props.pageClick(repo.id)}> click</button>
+                        <button onClick={() => props.pageClick(repo.id)}> click</button>
+                        <button onClick={() => props.pageClick(repo.id)}> click</button>
+                    </div>*/
+                </footer>
             </div>
         );
     }
