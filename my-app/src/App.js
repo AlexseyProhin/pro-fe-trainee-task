@@ -74,23 +74,8 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <button onClick={() => this.pageClick()}>
+                <button onClick={() => this.buttonHandle()}>
                     Перейти на главную
-                </button>
-                <button onClick={() => this.pageClick(1)}>
-                    1
-                </button>
-                <button onClick={() => this.pageClick(2)}>
-                    2
-                </button>
-                <button onClick={() => this.pageClick(3)}>
-                    3
-                </button>
-                <button onClick={() => this.pageClick(4)}>
-                    4
-                </button>
-                <button onClick={() => this.pageClick(5)}>
-                    5
                 </button>
 
                 <header className="App-header">
@@ -104,12 +89,23 @@ class App extends React.Component {
                 <footer>
                    <div id="pages">
 
-                       <button onClick={() => props.pageClick()}> click</button>
-                        <button onClick={() => props.pageClick()}> click</button>
-                       <button onClick={() => props.pageClick()}> click</button>
-                        <button onClick={() => props.pageClick()}> click</button>
-                        <button onClick={() => props.pageClick()}> click</button>
-                    </div>
+                       <button onClick={() => this.pageClick(1)}>
+                           1
+                       </button>
+                       <button onClick={() => this.pageClick(2)}>
+                           2
+                       </button>
+                       <button onClick={() => this.pageClick(3)}>
+                           3
+                       </button>
+                       <button onClick={() => this.pageClick(4)}>
+                           4
+                       </button>
+                       <button onClick={() => this.pageClick(5)}>
+                           5
+                       </button>
+
+                   </div>
                 </footer>
             </div>
         );
