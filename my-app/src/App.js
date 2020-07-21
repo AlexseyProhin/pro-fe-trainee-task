@@ -49,10 +49,9 @@ class App extends React.Component {
 
 
     }
-    pageClick(id) {
+    pageClick(event) {
         this.setState({
-            current_repo_id: id,
-            is_main: true,
+
         })
     }
     buttonHandle(id) {
@@ -76,40 +75,43 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <button onClick={() => this.buttonHandle()}>
+                <button onClick={() => this.pageClick()}>
                     Перейти на главную
                 </button>
-                <button onClick={() => this.buttonHandle()}>
+                <button onClick={() => this.pageClick()}>
                     1
                 </button>
-                <button onClick={() => this.buttonHandle()}>
+                <button onClick={() => this.pageClick()}>
                     2
                 </button>
-                <button onClick={() => this.buttonHandle()}>
+                <button onClick={() => this.pageClick()}>
                     3
                 </button>
-                <button onClick={() => this.buttonHandle()}>
+                <button onClick={() => this.pageClick()}>
                     4
+                </button>
+                <button onClick={() => this.pageClick()}>
+                    5
                 </button>
 
                 <header className="App-header">
                     <input value={this.state.value} onChange={(event) => this.onSearchInputChange(event)}/>
 
-                    {this.state.is_main && <RepoDetails repo={this.state.repos[this.state.current_repo_id]}/>}
+                    {this.state.is_main &&
+                    <RepoDetails repo={this.state.repos[this.state.current_repo_id]}/>}
                     {!this.state.is_main &&
                     <RepoList repos={this.state.repos.items} repoClick={(id) => this.repoClick(id)}/>}
                 </header>
                 <footer>
-                 /*   <div id="pages">
-                       <button onClick={() => props.pageClick(repo.id)}> click</button>
-                        <button onClick={() => props.pageClick(repo.id)}> click</button>
-                       <button onClick={() => props.pageClick(repo.id)}> click</button>
-                        <button onClick={() => props.pageClick(repo.id)}> click</button>
-                        <button onClick={() => props.pageClick(repo.id)}> click</button>
-                    </div>*/
+                   <div id="pages">
+                       <button onClick={() => props.pageClick()}> click</button>
+                        <button onClick={() => props.pageClick()}> click</button>
+                       <button onClick={() => props.pageClick()}> click</button>
+                        <button onClick={() => props.pageClick()}> click</button>
+                        <button onClick={() => props.pageClick()}> click</button>
+                    </div>
                 </footer>
-            </div>
-        );
+
     }
 };
 
