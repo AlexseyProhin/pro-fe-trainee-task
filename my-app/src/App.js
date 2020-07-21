@@ -37,7 +37,7 @@ class App extends React.Component {
 
 
     state = {
-
+        page : 'pageNumber',
         pagestate : 'newgetpag',
         usersKeyApi: '7338fca6dae435ae097a2dcf47844de50da5f1b5',
         searcQuery: 'React',
@@ -49,14 +49,13 @@ class App extends React.Component {
 
 
     }
-    pageClick(event) {
-        this.setState({
-
-        })
+    pageClick(pageNumber) {
+        this.setState({ page: pageNumber})
     }
+
     buttonHandle(id) {
         this.setState({
-            is_main: !this.state.is_main
+
         })
     }
 
@@ -78,19 +77,19 @@ class App extends React.Component {
                 <button onClick={() => this.pageClick()}>
                     Перейти на главную
                 </button>
-                <button onClick={() => this.pageClick()}>
+                <button onClick={() => this.pageClick(1)}>
                     1
                 </button>
-                <button onClick={() => this.pageClick()}>
+                <button onClick={() => this.pageClick(2)}>
                     2
                 </button>
-                <button onClick={() => this.pageClick()}>
+                <button onClick={() => this.pageClick(3)}>
                     3
                 </button>
-                <button onClick={() => this.pageClick()}>
+                <button onClick={() => this.pageClick(4)}>
                     4
                 </button>
-                <button onClick={() => this.pageClick()}>
+                <button onClick={() => this.pageClick(5)}>
                     5
                 </button>
 
@@ -104,6 +103,7 @@ class App extends React.Component {
                 </header>
                 <footer>
                    <div id="pages">
+
                        <button onClick={() => props.pageClick()}> click</button>
                         <button onClick={() => props.pageClick()}> click</button>
                        <button onClick={() => props.pageClick()}> click</button>
@@ -111,7 +111,8 @@ class App extends React.Component {
                         <button onClick={() => props.pageClick()}> click</button>
                     </div>
                 </footer>
-
+            </div>
+        );
     }
 };
 
