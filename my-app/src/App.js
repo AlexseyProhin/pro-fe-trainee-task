@@ -21,7 +21,7 @@ class App extends React.Component {
     }
 
     fetchGithub() {
-        axios.get('https://api.github.com/search/repositories?sort=stars&q=' + this.state.searcQuery,
+        axios.get('https://api.github.com/search/repositories?sort=stars&q='   + this.state.searcQuery + '&per_page=10&page=' + this.state.page,
             {
                 headers:
                 // eslint-disable-next-line no-undef
