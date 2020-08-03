@@ -10,16 +10,14 @@ class App extends React.Component {
 
     constructor(props) {
         super(props)
-        this.fetchGithub = debounce(6000, this.fetchGithub);
+        this.fetchGithub = debounce(2000, this.fetchGithub);
     }
 
     componentDidUpdate(prevProps, prevState) {
-
-            if  (prevState.page !== this.state.page)
-            {this.fetchGithub()}
-            else (prevState.searcQuery !== this.state.searcQuery)
-            { this.fetchGithub() }
-            }
+        if  (prevState.page !== this.state.page)
+        {this.fetchGithub()}
+        else if (prevState.searcQuery !== this.state.searcQuery)
+        { this.fetchGithub() }
 
 
 
