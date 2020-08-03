@@ -15,23 +15,16 @@ class App extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
 
-            if (prevState.searcQuery !== this.state.searcQuery) {
-                this.fetchGithub()
-            } else {
-                (prevState.page !== this.state.page)
-                { this.fetchGithub()}
+            if  (prevState.page !== this.state.page)
+            {this.fetchGithub()}
+            else (prevState.searcQuery !== this.state.searcQuery)
+            { this.fetchGithub() }
             }
 
 
-            }
 
 
-            /*  if (prevState.searcQuery !== this.state.searcQuery)
-                  (prevState.page !== this.state.page)
-                  {
-                  this.fetchGithub()*/ //вызываем получение данных из гитхаб апи
 
-        //при каждом обновлении компонента
     }
 
     fetchGithub() {
