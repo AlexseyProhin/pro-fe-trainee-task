@@ -54,7 +54,7 @@ class App extends React.Component {
     }
 
     buttonHandle(id) {
-        this.setState({
+        this.setState({ is_main: !this.state.is_main
 
         })
     }
@@ -88,10 +88,17 @@ class App extends React.Component {
                 </header>
                 <footer>
                    <div id="pages">
-
+                   {this.state.pageNumber  == 1 &&
+                        <h2>
+                            [
+                        </h2>}
                        <button onClick={() => this.pageClick(1)}>
                            1
                        </button>
+                       {this.state.pageNumber  == 1 &&
+                        <h2>
+                            [
+                        </h2>}
                        <button onClick={() => this.pageClick(2)}>
                            2
                        </button>
