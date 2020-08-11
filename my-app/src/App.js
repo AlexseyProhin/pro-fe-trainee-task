@@ -10,18 +10,23 @@ class App extends React.Component {
 
     constructor(props) {
         super(props)
-        this.fetchGithub = debounce(6000, this.fetchGithub);
+        this.fetchGithub = debounce(2000, this.fetchGithub);
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.searcQuery !== this.state.searcQuery) {
-            this.fetchGithub() //вызываем получение данных из гитхаб апи
-        }
-        //при каждом обновлении компонента
+        if  (prevState.page !== this.state.page)
+        {this.fetchGithub()}
+        else if (prevState.searcQuery !== this.state.searcQuery)
+        { this.fetchGithub() }
+
+
+
+
+
     }
 
     fetchGithub() {
-        axios.get('https://api.github.com/search/repositories?sort=stars&q=' + this.state.searcQuery,
+        axios.get('https://api.github.com/search/repositories?sort=stars&q='   + this.state.searcQuery + '&per_page=10&page=' + this.state.page,
             {
                 headers:
                 // eslint-disable-next-line no-undef
