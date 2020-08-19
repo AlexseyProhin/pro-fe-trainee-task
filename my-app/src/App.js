@@ -42,7 +42,7 @@ class App extends React.Component {
 
 
     state = {
-        page : 'pageNumber',
+        page : 0,
         pagestate : 'newgetpag',
         usersKeyApi: '7338fca6dae435ae097a2dcf47844de50da5f1b5',
         searcQuery: 'React',
@@ -93,29 +93,64 @@ class App extends React.Component {
                 </header>
                 <footer>
                    <div id="pages">
-                       {this.state.pageNumber  == 1 &&
-                       <h2>
+                       {this.state.page  == 1 &&
+                       <span>
                            [
-                       </h2>}
-                       <button onClick={() => this.pageClick(1)}>
+                       </span>}
+                       <a href= "onClick={() => this.pageClick(1)}" target="_blank">{this.state.pipeline}</a>
+                       
+                       
+                        <button onClick={() => this.pageClick(1)}> }
                            1
                        </button>
-                       {this.state.pageNumber  == 1 &&
-                       <h2>
+                       {this.state.page  == 1 &&
+                       <span>
+                           ]
+                       </span>}
+                       {this.state.page  == 2 &&
+                       <span>
                            [
-                       </h2>}
+                       </span>}
                        <button onClick={() => this.pageClick(2)}>
                            2
                        </button>
+                       {this.state.page  == 2 &&
+                       <span>
+                           ]
+                       </span>}
+                       {this.state.page  == 3 &&
+                       <span>
+                           [
+                       </span>}
                        <button onClick={() => this.pageClick(3)}>
                            3
                        </button>
+                       {this.state.page  == 3 &&
+                       <span>
+                           [
+                       </span>}
+                       {this.state.page  == 4 &&
+                       <span>
+                           [
+                       </span>}
                        <button onClick={() => this.pageClick(4)}>
                            4
                        </button>
+                       {this.state.page  == 4 &&
+                       <span>
+                           ]
+                       </span>}
+                       {this.state.page  == 5 &&
+                       <span>
+                           [
+                       </span>}
                        <button onClick={() => this.pageClick(5)}>
                            5
                        </button>
+                       {this.state.page  == 5 &&
+                       <span>
+                           ]
+                       </span>}
 
                    </div>
                 </footer>
